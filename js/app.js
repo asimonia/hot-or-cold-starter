@@ -83,8 +83,7 @@ function getUserGuess() {
 	userGuess = input.val();
 	input.val('');
 	input.focus();
-	if (checkGuess())
-		return ;
+	if (checkGuess()) {return ;}
 	generateFeedback();
 	trackGuess();
 	guessCount();
