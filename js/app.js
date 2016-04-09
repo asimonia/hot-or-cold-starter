@@ -41,12 +41,12 @@ function load() {
   	countElement = $('#count');
   	guessList = $('#guessList');
 
-  	/*--- Initialize New Game ---*/
   	newGame();
 
   	/*--- Event Handlers ---*/
   	// The user can submit a new form for guess or start a new game
   	form.submit(function(e) {
+  		event.preventDefault();
   		getUserGuess();
   	});
   	newButton.click(newGame);
@@ -83,8 +83,7 @@ function getUserGuess() {
 	userGuess = input.val();
 	input.val('');
 	input.focus();
-	if (checkGuess())
-		return ;
+	if (checkGuess()) {return ;}
 	generateFeedback();
 	trackGuess();
 	guessCount();
